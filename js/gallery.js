@@ -90,3 +90,11 @@ function GalleryImage() {
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
 	let image = "imgPath"
 }
+
+
+function fetchJSON() {
+	$.getJSON("images.json", function (responseText){
+
+	});
+	
+}
