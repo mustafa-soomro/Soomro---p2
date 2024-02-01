@@ -53,7 +53,7 @@ function swapPhoto() {
   
 	// Set the src attribute of the 'photo' element to the corresponding value from the mImages array
 	photoElement.src = mImages[mCurrentIndex].img;
-	
+
 	// Access the 'photo' element in the HTML document
   var photoElement = document.getElementById('photo');
 
@@ -69,6 +69,12 @@ function swapPhoto() {
   locationElement.innerHTML = "Location: " + mImages[mCurrentIndex].location;
   descriptionElement.innerHTML = "Description: " + mImages[mCurrentIndex].description;
   dateElement.innerHTML = "Date: " + mImages[mCurrentIndex].date;
+  
+  // Set the variable mLastFrameTime to zero
+  var mLastFrameTime = 0;
+
+  // Increase the current index number by 1 using the += operator
+  mCurrentIndex += 1;
 	console.log('swap photo');
 }
 
@@ -112,21 +118,29 @@ window.addEventListener('load', function() {
 }, false);
 
 function GalleryImage() {
-	//implement me as an object to hold the following data about an image:
-	//1. location where photo was taken
-	let location = "imgLocation"
-	//2. description of photo
-	let description = "description"
-	//3. the date when the photo was taken
-	let date = "date"
-	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-	let image = "imgPath"
+    //implement me as an object to hold the following data about an image:
+    //1. location where photo was taken
+    var location;
+    //2. description of photo
+    var description;
+    //3. the date when the photo was taken  
+    var date;
+    //4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+    var img;
 }
+
 
 
 function fetchJSON() {
-	$.getJSON("images.json", function (responseText){
+	mRequest.onreadystatechange = function() {
+        if(this.readyState >= 200 && this.status < 400){
+            var mJson = JSON.parse(mRequest.responseText);
+            console.log(mJson)
+        } else {
+            console.log("We connected to the server but an error occured")
+        }
+    }
+	mRequest.open(GET, mUrl, true)
+    mRequest.send()
 
-	});
-	
-}
+	};
