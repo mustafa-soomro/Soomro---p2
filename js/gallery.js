@@ -104,12 +104,15 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 	}
 }
 
-$(document).ready( function() {
-	
+$(document).ready(function() {
+
+	// Call the fetchJSON function
+	fetchJSON();
+  
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
-	
-});
+  
+  });
 
 window.addEventListener('load', function() {
 	
