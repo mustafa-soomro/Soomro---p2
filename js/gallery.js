@@ -144,3 +144,18 @@ function fetchJSON() {
     mRequest.send()
 
 	};
+
+function iterateJSON(mJson, mImages) {
+  // Create a for loop
+  for (var x = 0; x < mJson.images.length; x++) {
+    // Create a new GalleryImage object at the current index of mImages
+    mImages[x] = new GalleryImage();
+
+    // Access the mImages array by using the variable x as the index
+    // Set attributes using dot notation from mJson.images
+    mImages[x].location = mJson.images[x].imgLocation;
+    mImages[x].description = mJson.images[x].imgDescription;
+    mImages[x].date = mJson.images[x].imgDate;
+    mImages[x].img = mJson.images[x].imgPath;
+  }
+}
