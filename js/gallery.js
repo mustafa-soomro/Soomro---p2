@@ -117,7 +117,7 @@ window.addEventListener('load', function() {
 
 }, false);
 
-function GalleryImage() {
+function galleryImage() {
     //implement me as an object to hold the following data about an image:
     //1. location where photo was taken
     var location;
@@ -137,7 +137,7 @@ function fetchJSON() {
             var mJson = JSON.parse(mRequest.responseText);
             console.log(mJson)
         } else {
-            console.log("We connected to the server but an error occured")
+            console.log("We connected to the server but an error occurred")
         }
     }
 	mRequest.open(GET, mUrl, true)
