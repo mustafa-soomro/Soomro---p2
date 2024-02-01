@@ -33,7 +33,28 @@ function animate() {
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
 function swapPhoto() {
-  // Access the 'photo' element in the HTML document
+    // Increment the current index
+	mCurrentIndex++;
+
+	// Check if the current index is greater than or equal to the length of mImages
+	if (mCurrentIndex >= mImages.length) {
+	  // Set the current index back to 0
+	  mCurrentIndex = 0;
+	}
+  
+	// Check if the current index is less than 0
+	if (mCurrentIndex < 0) {
+	  // Set the current index to the last image in the array mImages
+	  mCurrentIndex = mImages.length - 1;
+	}
+  
+	// Access the 'photo' element in the HTML document
+	var photoElement = document.getElementById('photo');
+  
+	// Set the src attribute of the 'photo' element to the corresponding value from the mImages array
+	photoElement.src = mImages[mCurrentIndex].img;
+	
+	// Access the 'photo' element in the HTML document
   var photoElement = document.getElementById('photo');
 
   // Set the src attribute of the 'photo' element to the corresponding value from the mImages array
