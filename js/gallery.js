@@ -163,3 +163,52 @@ function iterateJSON(mJson) {
     mImages[x].img = mJson.images[x].imgPath;
   }
 }
+
+
+
+
+
+$(document).ready(function(){
+  // Click handler for img.moreIndicator
+  $('img.moreIndicator').click(function(){
+    let $indicator = $(this);
+    let $details = $('.details');
+    // Toggle rotation classes
+    if ($indicator.hasClass('rot90')) {
+      $indicator.removeClass('rot90').addClass('rot270');
+    } else {
+      $indicator.removeClass('rot270').addClass('rot90');
+    }
+    // Slide down/up details div
+    $details.slideToggle();
+  });
+
+  // Offset #nextPhoto to the right side of #nav div
+  $('#nextPhoto').position({
+    my: 'right',
+    at: 'right',
+    of: '#nav'
+  });
+
+  // Click handler for navigating to the next photo
+  $('#nextPhoto').click(function() {
+    let $currentIndex = $('.thumbnail');
+    let $nextPhoto = $currentIndex.next('.thumbnail');
+    if ($nextPhoto.length === 0) {
+      $nextPhoto = $('.thumbnail').first();
+    }
+    $nextPhoto.hide();
+    $nextPhoto.show();
+  });
+
+  // Click handler for navigating to the previous photo
+  $('#prevPhoto').click(function() {
+    let $currentIndex = $('.thumbnail');
+    let $prevPhoto = $currentIndex.prev('.thumbnail');
+    if ($prevPhoto.length === 0) {
+      $prevPhoto = $('.thumbnail').last();
+    }
+    $nextPhoto.hide();
+    $prevPhoto.show();
+  });
+});
