@@ -1,27 +1,27 @@
 {
     "images": [
         {
-            "imgPath": "http://placehold.it/518x389?text=index+0",
-            "imgLocation": "First image (index 0)",
-            "description": "This is the 1st image in the set",
-            "date": "01/01/2016"
+            "imgPath": "img/places/IstanbulTurkey.jpg",
+            "imgLocation": "Istanbul",
+            "description": "Turkey",
+            "date": "01/05/2016"
         },
         {
-            "imgPath": "http://placehold.it/518x389?text=index+1",
-            "imgLocation": "Second image (index 1)",
-            "description": "This is the 2nd image in the set",
+            "imgPath": "img/places/HollywoodLA.jpg",
+            "imgLocation": "Hollywood, LA",
+            "description": "California",
             "date": "02/01/2016"
         },
         {
-            "imgPath": "http://placehold.it/518x389?text=index+2",
-            "imgLocation": "Third image (index 2)",
-            "description": "This is the 3rd image in the set",
+            "imgPath": "img/places/LasVegasNevada.webp",
+            "imgLocation": "Las Vegas",
+            "description": "Nevada",
             "date": "03/01/2016"
         },
     {
-      "imgPath": "http://placehold.it/518x389?text=index+3",
-      "imgLocation": "Fourth image (index 3)",
-      "description": "This is the 4th image in the set",
+      "imgPath": "img/places/portlandoregon.jpg",
+      "imgLocation": "Portland",
+      "description": "Oregon",
       "date": "04/01/2016"
     }
   ]

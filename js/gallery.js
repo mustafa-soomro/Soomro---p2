@@ -92,7 +92,7 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'images.json';
+var mUrl = 'images-short.json';
 
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
@@ -117,6 +117,39 @@ $(document).ready(function () {
 window.addEventListener('load', function () {
 
   console.log('window loaded');
+    // Click handler for img.moreIndicator
+    $('img.moreIndicator').click(function(){
+      let $indicator = $(this);
+      let $details = $('.details');
+      // Toggle rotation classes
+      if ($indicator.hasClass('rot90')) {
+        $indicator.removeClass('rot90').addClass('rot270');
+      } else {
+        $indicator.removeClass('rot270').addClass('rot90');
+      }
+      // Slide down/up details div
+      $details.slideToggle();
+    });
+  
+    // Offset #nextPhoto to the right side of #nav div
+    $('#nextPhoto').position({
+      my: 'right',
+      at: 'right',
+      of: '#nav'
+    });
+  
+    // Click handler for navigating to the next photo
+    $('#nextPhoto').click(function() {
+     swapPhoto();
+    });
+  
+    // Click handler for navigating to the previous photo
+    $('#prevPhoto').click(function() {
+      mCurrentIndex = mCurrentIndex-3;
+   swapPhoto();
+    });
+  
+  
 
 }, false);
 
@@ -168,47 +201,4 @@ function iterateJSON(mJson) {
 
 
 
-$(document).ready(function(){
-  // Click handler for img.moreIndicator
-  $('img.moreIndicator').click(function(){
-    let $indicator = $(this);
-    let $details = $('.details');
-    // Toggle rotation classes
-    if ($indicator.hasClass('rot90')) {
-      $indicator.removeClass('rot90').addClass('rot270');
-    } else {
-      $indicator.removeClass('rot270').addClass('rot90');
-    }
-    // Slide down/up details div
-    $details.slideToggle();
-  });
 
-  // Offset #nextPhoto to the right side of #nav div
-  $('#nextPhoto').position({
-    my: 'right',
-    at: 'right',
-    of: '#nav'
-  });
-
-  // Click handler for navigating to the next photo
-  $('#nextPhoto').click(function() {
-    let $currentIndex = $('.thumbnail');
-    let $nextPhoto = $currentIndex.next('.thumbnail');
-    if ($nextPhoto.length === 0) {
-      $nextPhoto = $('.thumbnail').first();
-    }
-    $nextPhoto.hide();
-    $nextPhoto.show();
-  });
-
-  // Click handler for navigating to the previous photo
-  $('#prevPhoto').click(function() {
-    let $currentIndex = $('.thumbnail');
-    let $prevPhoto = $currentIndex.prev('.thumbnail');
-    if ($prevPhoto.length === 0) {
-      $prevPhoto = $('.thumbnail').last();
-    }
-    $nextPhoto.hide();
-    $prevPhoto.show();
-  });
-});
